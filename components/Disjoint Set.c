@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 22 12:18:06 2022
+// # -*- coding: utf-8 -*-
+// """
+// Created on Tue Feb 22 12:18:06 2022
 
-@author: Paul Ledala
-"""
+// @author: Paul Ledala
+// """
 
 #include <stdio.h>
 
@@ -94,8 +94,39 @@ void DisjointSetUnion(DisjointSet *a, DisjointSet *b)
     }
 }
 
+int initDisjointSet(DisjointSet *s, int size)
+{
+    if (s == NULL)
+        return -1;
+
+    memset (s->rank, 0, size);
+    memset (s->parent, 0, size);
+    s->n = size;
+    p->alive = alive;
+
+    return 0;
+}
+
+enum {LENGTH = 10};
+
 int main() {
    // printf() displays the string inside quotation
-   printf("Hello, World!");
+   DisjointSet a; //= { .flag = true, .value = 123, .stuff = 0.456 };
+//    printf("Hello, World!");
+
+//    DisjointSet me = { "John\0", "McCarthy\0", 24, 1};
+    // Person arr[LENGTH];
+
+    // for (int i = 0; i < LENGTH; ++i) {
+
+        initDisjointSet (&a, 5);
+    // }
+
+    for (int i = 0; i < LENGTH; ++i) {
+        printPerson(&arr[i]);
+        printf("\n");
+    }
+
+    exit(EXIT_SUCCESS);
    return 0;
 }
