@@ -6,6 +6,7 @@
 // """
 
 #include <stdio.h>
+#include <string.h>
 
 //--------------------------------------------------
 //--------------------------------------------------
@@ -16,30 +17,28 @@
 struct DisjointSet;
 
 typedef struct DisjointSet {
-	/*int r,g,b;
+	
+	 int rank []; 
+     int parent []; 
+     int n;
+     /*int r,g,b;
 	int x,y;
 	int rank;
 	struct DisjointSet *parent;
 	*/
-	 int *rank, *parent, n;
 } DisjointSet;
 
-    DisjSet(int n)
-    {
-        rank = new int[n];
-        parent = new int[n];
-        this->n = n;
-        makeSet();
-    }
+   
   
     // Creates n single item sets
-    void makeSet()
+    void makeSet(int *parent, int size)
     {
-        for (int i = 0; i < n; i++) {
+        printf("Here1b\n");
+        for (int i = 0; i < size; i++) {
             parent[i] = i;
         }
     }
-DisjointSet *DisjointSetFindRoot(DisjointSet *curr)
+/*DisjointSet *DisjointSetFindRoot(DisjointSet *curr)
 {
 	  // Finds set of given item x
 
@@ -93,6 +92,32 @@ void DisjointSetUnion(DisjointSet *a, DisjointSet *b)
         }
     }
 }
+*/
+int initDisjointSet(DisjointSet *s, int size)
+{
+    // if (s == NULL)
+    //     return -1;
+    printf("Here1a\n");
+    printf("Here1b\n");
+    s->n = size;
+    printf("Here1c\n");
+    printf("%d", s->n);
+    int rank[5];
+    printf("Here1d\n");
+    memset (rank, 0, size* sizeof(int));
+    printf("Here1e\n");
+    memcpy(s->rank, rank, 40);
+    printf("Here1f\n");
+    printf("Here1d\n");
+    memset (s->rank, 0, size* sizeof(int));
+    printf("Here1d\n");
+    memset (s->parent, 0, size* sizeof(int));
+    s->n = size;
+    makeSet(s->parent, size);
+    return 0;
+}
+
+enum {LENGTH = 10};
 
 int initDisjointSet(DisjointSet *s, int size)
 {
@@ -111,13 +136,18 @@ enum {LENGTH = 10};
 
 int main() {
    // printf() displays the string inside quotation
+<<<<<<< Updated upstream
    DisjointSet a; //= { .flag = true, .value = 123, .stuff = 0.456 };
+=======
+   struct DisjointSet a; //= { .flag = true, .value = 123, .stuff = 0.456 };
+>>>>>>> Stashed changes
 //    printf("Hello, World!");
 
 //    DisjointSet me = { "John\0", "McCarthy\0", 24, 1};
     // Person arr[LENGTH];
 
     // for (int i = 0; i < LENGTH; ++i) {
+<<<<<<< Updated upstream
 
         initDisjointSet (&a, 5);
     // }
@@ -128,5 +158,16 @@ int main() {
     }
 
     exit(EXIT_SUCCESS);
+=======
+        printf("Here1\n");
+        initDisjointSet (&a, 5);
+    // }
+
+        printf("Here2\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d\n", (a.rank[i]));
+    }
+
+>>>>>>> Stashed changes
    return 0;
 }
